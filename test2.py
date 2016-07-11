@@ -27,7 +27,7 @@ min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 # If the method is TM_SQDIFF or TM_SQDIFF_NORMED, take minimum
 
 
-top_left = min_loc
+top_left = max_loc
 bottom_right = (top_left[0] + w, top_left[1] + h)
 
 cv2.rectangle(img1,top_left, bottom_right, 255, 2)
