@@ -42,20 +42,20 @@ def split_quater(img1,img2,n):
    iq1 = img1
    iq2 = img2
    if n == 1:
-      iq1 = np.copy(iq1[0:239,0:239])
-      iq2 = np.copy(iq2[0:239,0:239])
+   	iq1 = np.copy(iq1[0:239,0:239])
+    iq2 = np.copy(iq2[0:239,0:239])
    elif n == 2:
-      iq1 = np.copy(iq1[0:239,240:479])
-      iq2 = np.copy(iq2[0:239,240:479])
+    iq1 = np.copy(iq1[0:239,240:479])
+    iq2 = np.copy(iq2[0:239,240:479])
    elif n == 3:
-      iq1 = np.copy(iq1[240:479,0:239])
-      iq2 = np.copy(iq2[240:479,0:239])
+    iq1 = np.copy(iq1[240:479,0:239])
+    iq2 = np.copy(iq2[240:479,0:239])
    elif n == 4:
-      iq1 = np.copy(iq1[240:479,240:479])
-      iq2 = np.copy(iq2[240:479,240:479])
+    iq1 = np.copy(iq1[240:479,240:479])
+    iq2 = np.copy(iq2[240:479,240:479])
    elif n == 5:
-      iq1 = img1
-      iq2 = img2
+   	iq1 = img1
+    iq2 = img2
    iq1 = cv2.GaussianBlur(iq1,(5,5),0)
    iq2 = cv2.GaussianBlur(iq2,(5,5),0)
    
@@ -126,12 +126,12 @@ for i in range(len(imglistD)):
    #y5,x5 =  split_quater(imgnew,img2,5)
    
    """if y5 <10 and y5>-10 and x5>-10 and x5<10:
-      y_avg = y5
-      x_avg = x5
+    y_avg = y5
+    x_avg = x5
    
-      #shift
-      M = np.float32([[1,0,-x_avg],[0,1,-y_avg]])
-      imgnew = cv2.warpAffine(imgnew,M,(480,480))"""
+    #shift
+    M = np.float32([[1,0,-x_avg],[0,1,-y_avg]])
+    imgnew = cv2.warpAffine(imgnew,M,(480,480))"""
 
 
    
@@ -158,9 +158,9 @@ for i in range(len(imglistD)):
    
    lines = cv2.HoughLinesP(imgnew,1,np.pi/180,100,minLineLength=20,maxLineGap=5)
    if lines != None:
-      lines1 = lines[:,0,:]
-      for x1,y1,x2,y2 in lines1[:]: 
-         cv2.line(imgnew,(x1,y1),(x2,y2),(0,255,0),2)   
+    lines1 = lines[:,0,:]
+    for x1,y1,x2,y2 in lines1[:]: 
+    	cv2.line(imgnew,(x1,y1),(x2,y2),(0,255,0),2)   
 
    
    #img1new = cv2.fastNlMeansDenoising(img1new,None,10,7,21)
@@ -168,24 +168,24 @@ for i in range(len(imglistD)):
    print("mean",imgnew.mean())
 
    if np.array_equal(imgO ,img1):
-      same = True
-      print('t')
+    same = True
+    print('t')
    elif imgnew.mean()< 1 and  hash_value < 2  :
-      same = True
-      print('t')
+    same = True
+    print('t')
    else:
-      same = False
-      print('f')
+    same = False
+   	print('f')
    
    filename = imglistD[i]
    filename = filename.replace('Defect','NEW')
    
    if same:
-      #filenameN = re.sub(r"test\\Lot [0-9]*\\",'test/notfound/',filename)
-      filenameN = filename.replace('test','notfound')
+   	#filenameN = re.sub(r"test\\Lot [0-9]*\\",'test/notfound/',filename)
+    filenameN = filename.replace('test','notfound')
    else :
-      #filenameN = re.sub(r"test\\Lot [0-9]*\\",'test/found/',filename)
-      filenameN = filename.replace('test','found')
+    #filenameN = re.sub(r"test\\Lot [0-9]*\\",'test/found/',filename)
+    filenameN = filename.replace('test','found')
    
    print(filenameN)
    
