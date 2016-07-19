@@ -2,7 +2,6 @@ import numpy as np
 from scipy import signal
 import cv2
 from PIL import Image
-import imagehash
 from glob import glob
 import re
 import os

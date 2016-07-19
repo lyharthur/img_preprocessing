@@ -42,7 +42,7 @@ def split_quater(img1,img2,n):
    iq1 = img1
    iq2 = img2
    if n == 1:
-   	iq1 = np.copy(iq1[0:239,0:239])
+iq1 = np.copy(iq1[0:239,0:239])
     iq2 = np.copy(iq2[0:239,0:239])
    elif n == 2:
     iq1 = np.copy(iq1[0:239,240:479])
